@@ -32,6 +32,41 @@ function modifyIconTo(locale) {
   }
 }
 
+const numericInput = document.getElementById(
+  "numericInput"
+);
+
+// Adiciona um listener para o evento input
+numericInput.addEventListener(
+  "input",
+  function (event) {
+    // Obtém o valor atual do input
+    let inputValue = event.target.value;
+
+    // Remove qualquer caractere não numérico usando uma expressão regular
+    inputValue = inputValue.replace(
+      /[^0-9.]/g,
+      ""
+    );
+
+    // Garante que exista apenas um ponto decimal
+    const dotCount =
+      inputValue.split(".").length - 1;
+    if (dotCount > 1) {
+      inputValue = inputValue.slice(0, -1);
+    }
+
+    // Fixa duas casas decimais
+    const floatValue = parseFloat(inputValue);
+    if (!isNaN(floatValue)) {
+      inputValue = floatValue.toFixed(2);
+    }
+
+    // Atualiza o valor do input com apenas números e 2 casas decimais
+    event.target.value = inputValue;
+  }
+);
+
 function converterMoeda() {
   const amount =
     document.getElementById("amount").value;
