@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <title>Conversor de Moedas</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <h1>Currency Converter</h1>
+        <p>
+            Check live rates, set rate alerts, receive notifications and more.</p>
+        <div class="container-currency">
+            <div class="content-value">
+                <p class="subtitle">Amount</p>
+                <div class="from-value">
+                    <div class="content-currency" id="In-value">
+                        <img id="icon-from" src="/assets/br-image.png" alt="BRA image" width="45px" height="45px">
+                        <select class="locale" id="localeFrom" onchange= modifyIconFrom(localeFrom.value) >
+                            <option  value="BRL" selected>BRL</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+
+                        </select>
+                    </div>
+                    <input id="amount" type="number" placeholder="0,00" >
+
+                </div>
+            </div>
+
+
+            <div class="container-btn">
+                <button class="btn-convert" id="btn-convert" onclick=converterMoeda() >Convert Currency</button>
+                <div class="bar"></div>
+            </div>
+
+
+
+            <div class="content-value">
+                <p class="subtitle">Converted Amount</p>
+                <div class="to-value">
+                    <div class="content-currency" id="out-value">
+                        <img id="icon-to" src="/assets/usd-image.png" alt="USD image" width="45px" height="45px">
+                        <select class="locale" id="localeTo"  onchange= modifyIconTo(localeTo.value)>
+                            <option value="BRL">BRL</option>
+                            <option value="USD" selected>USD</option>
+                            <option value="EUR">EUR</option>
+
+                        </select>
+                    </div>
+                    <p class="convertAmount" id="result"></p>
+
+                </div>
+
+            </div>
+        </div>
+        <footer>Desenvolvido por ©️Gabriel</footer>
+
+    </div>
+</body>
+
+</html>
